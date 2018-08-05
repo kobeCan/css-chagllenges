@@ -1,0 +1,41 @@
+.sliding-btn {
+	border: 2px solid #333;
+	width: 200px;
+	background-color: #FFF;
+	font-size: 30px;
+	line-height: 60px;
+	cursor: pointer;
+	color: red;
+	overflow: hidden;
+
+	span {
+		display: inline-block;
+		color: blue;
+		transition: .5s;
+
+		&:nth-child(odd) {
+			transform: translateY(-100%);
+
+			&:before {
+				transform: translateY(100%);
+			}
+		}
+		&:nth-child(even) {
+			transform: translateY(100%);
+
+			&:before {
+				transform: translateY(-100%);
+			}
+		}
+
+		&:before {
+			content: attr(data-text);
+			position: absolute;
+			color: red;
+		}
+	}
+
+	&:hover span {
+		transform: translateY(0)
+	}
+}

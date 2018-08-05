@@ -1,0 +1,71 @@
+$duration: 3s;
+
+@mixin delay($n) {
+	&:nth-child(#{$n}) {
+		animation-delay: $n / 5 * $duration * -1;
+	}
+}
+
+.loading {
+	display: inline-block;
+	padding: 20px 10px;
+	background: radial-gradient(circle at center, sienna, maroon);
+
+	.wrapper {
+		position: relative;
+		height: 1em;
+		font-size: 20px;
+		width: 6em;
+
+		span {
+			display: block;
+			border-radius: 50%;
+			background-color: #fff;
+			position: absolute;
+			width: 1em;
+			height: 1em;
+			left: 5em;
+			animation: walk $duration infinite linear, 
+			jump $duration infinite linear,
+			squash $duration infinite linear;
+
+			@include delay(1);
+			@include delay(2);
+			@include delay(3);
+			@include delay(4);
+			@include delay(5);
+		}
+	}
+}
+
+@keyframes walk {
+	0%, 95%, 100% {
+		left: 5em;
+	}
+
+	80%, 85% {
+		left: 0;
+	}
+}
+
+@keyframes jump {
+	80%, 100% {
+		top: 0em;
+	}
+
+	85%, 95% {
+		top: -1em;
+	}
+}
+
+@keyframes squash {
+	90% {
+		height: .8em;
+		width: 1.4em;
+	}
+
+	80%, 100% {
+		height: 1em;
+		width: 1em;
+	}
+}
