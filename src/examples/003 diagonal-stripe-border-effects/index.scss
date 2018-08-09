@@ -1,0 +1,62 @@
+body {
+	background-color: pink;
+}
+
+$length: 300px;
+
+.box {
+	width: $length;
+	height: $length;
+	background: linear-gradient(
+		-45deg,
+		#FFF 0%, 
+		#FFF 25%, 
+		hotpink 25%, 
+		hotpink 50%, 
+		#FFF 50%, 
+		#FFF 75%,
+		hotpink 75%,
+		hotpink 100%);
+	background-size: 10%;
+	box-sizing: border-box;
+	padding: 15px;
+	animation: animate infinite 2s linear;
+
+	.content {
+		height: 100%;
+		background-color: #fff;
+		padding: 30px;
+		box-sizing: border-box;
+		text-align: center;
+		flex-direction: column;
+		display: flex;
+		align-items: center;
+		justify-content: center; 
+
+		@at-root .content h2 {
+			color: deeppink;
+		}
+
+		p {
+			color: dimgray;
+		}
+	}
+
+	&, .content {
+		box-shadow: 0 0 2px deeppink, 
+								0 0 5px rgba(0, 0, 0, 1),
+								inset 0 0 5px rgba(0, 0, 0, 1);
+		border-radius: 10px;
+	}
+}
+
+@keyframes animate {
+	0% {
+		background-position: 0;
+	}
+
+	100% {
+		background-position: 10%;
+	}
+}
+
