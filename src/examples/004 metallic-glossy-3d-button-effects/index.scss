@@ -1,0 +1,47 @@
+body {
+  background-color: skyblue;
+}
+
+.btn-3d {
+  $width: 250px;
+  $height: $width / 3;
+
+  background-image: linear-gradient(to right, gold, darkorange);
+  color: #FFF;
+  border: 1px solid darkgoldenrod;
+  border-radius: 2em;
+  letter-spacing: .2em;
+  font-size: $height / 2.5;
+  width: $width;
+  height: $height;
+  line-height: $height;
+  transform: perspective(500px) rotateY(-15deg);
+  text-shadow: 6px 3px 2px rgba(0, 0, 0, .2);
+  box-shadow: 2px 0 0 5px rgba(0, 0, 0, .2);
+  transition: .5s;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    transform: perspective(500px) rotateY(15deg);
+    text-shadow: -6px 3px 2px rgba(0, 0, 0, .2);
+    box-shadow: -2px 0 0 5px rgba(0, 0, 0, .2);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    top: 0;
+    transition: .5s;
+    background-image: linear-gradient(to right, transparent, white, transparent);
+  }
+}

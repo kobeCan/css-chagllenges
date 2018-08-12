@@ -15,4 +15,4 @@ files = files.sort((f1, f2) => {
 	return squen1 - squen2;
 });
 
-fs.writeFileSync(path.resolve(root, './Files.json'), JSON.stringify(files));
+fs.writeFileSync(path.resolve(root, './Files.json'), JSON.stringify(files, null, '\t'));
