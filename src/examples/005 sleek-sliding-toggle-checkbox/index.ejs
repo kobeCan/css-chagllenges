@@ -1,0 +1,16 @@
+<%- include('../header', {title: 'sleek-sliding-toggle-checkbox'})%>
+<div class="checkbox">
+  <div class="inner">
+    <div class="toggle"></div>
+  </div>
+</div>
+<script>
+  window.onload = () => {
+    const checkbox = document.querySelector('.checkbox');
+    const clsList = checkbox.querySelector('.inner').classList;
+    checkbox.onclick = function() {
+      clsList[clsList.contains('active') ? 'remove' : 'add']('active');
+    }
+  }
+</script>
+<%- include('../footer') %>

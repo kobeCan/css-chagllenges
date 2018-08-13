@@ -6,7 +6,7 @@
   "scripts": {
     "dev:files": "node ./bin/gen-filelist.js",
     "build": "gulp build",
-    "dev": "gulp",
+    "dev": "npm run dev:files && gulp",
     "start": "npm run dev"
   },
   "keywords": [],
