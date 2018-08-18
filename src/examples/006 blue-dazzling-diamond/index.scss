@@ -1,0 +1,50 @@
+$color1: deepskyblue;
+$color2: steelblue;
+$color3: royalblue;
+$color4: dodgerblue;
+
+body {
+  background-color: navy;
+}
+
+.diamond {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: rotate(45deg);
+
+  span {
+    border-width: 50px;
+    border-style: solid;
+    border-color: $color1 $color2 $color3 $color4;
+
+    &:first-child {
+      border-color: transparent $color2 $color3 transparent;
+    }
+
+    &:not(:first-child) {
+      animation: animate 2s linear infinite;
+    }
+  }
+}
+
+@keyframes animate {
+  0% {
+    border-color: $color1 $color2 $color3 $color4;
+  }
+  
+  25% {
+    border-color: $color4 $color1 $color2 $color3;
+  }
+
+  50% {
+    border-color: $color3 $color4 $color1 $color2;
+  }
+
+  75% {
+    border-color: $color2 $color3 $color4 $color1;
+  }
+
+  100% {
+    border-color: $color1 $color2 $color3 $color4;
+  }
+}
