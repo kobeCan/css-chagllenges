@@ -1,0 +1,52 @@
+body {
+  background-color: navajowhite;
+}
+
+.box {
+  display: flex;
+
+  .inner {
+    width: 400px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 3em;
+    white-space: nowrap;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+
+    span {
+      position: absolute;
+      animation: marquee 5s linear infinite;
+    }
+
+    &:first-child {
+      background-color: indianred;
+      color: darkred;
+      transform-origin: right;
+      transform: perspective(100px) rotateY(-15deg);
+
+      span {
+        animation-delay: 2.5s;
+        left: -100%;
+      }
+    }
+
+    &:last-child {
+      background-color: lightcoral;
+      color: antiquewhite;
+      transform-origin: left;
+      transform: perspective(100px) rotateY(15deg)
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: -100%;
+  }
+}
