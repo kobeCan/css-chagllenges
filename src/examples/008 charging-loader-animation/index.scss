@@ -1,0 +1,40 @@
+body {
+  background-image: linear-gradient(to bottom, teal, aqua);
+}
+
+.battery {
+  width: 6em;
+  height: 3em;
+  border: .5em solid;
+  border-radius: .2em;
+  color: midnightblue;
+  font-size: 2em;
+  position: relative;
+  background-image: linear-gradient(to right, whitesmoke, whitesmoke);
+  background-repeat: no-repeat;
+  background-size: 30% 80%;
+  background-position: top .3em left .3em;
+  animation: charge steps(8) infinite 5s;
+
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: .5em;
+    height: 2em;
+    background-color: midnightblue;
+    top: .5em;
+    right: -1em;
+    border-radius: 0 .2em .2em 0;
+  }
+}
+
+@keyframes charge {
+  from {
+    background-size: 10% 80%;
+  }
+  
+  to {
+    background-size: 95% 80%;
+  }
+}
