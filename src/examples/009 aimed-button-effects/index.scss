@@ -1,0 +1,87 @@
+body {
+  background-color: black;
+}
+
+.box {
+  width: 9em;
+  height: 3em;
+  font-size: 30px;
+  color: #FFF;
+  text-align: center;
+  line-height: 3em;
+  filter: blur(2px);
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+
+
+  &:hover {
+    filter: blur(.2px);
+
+    &::after,
+    span:not(:first-child) {
+      animation: aim 1s infinite linear alternate;
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    filter: opacity(0);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  span:not(:first-child) {
+    position: absolute;
+    background-color: red;
+    filter: opacity(0);
+  }
+
+  span.bottom {
+    bottom: -3em;
+  }
+
+  span.top {
+    top: -3em;
+  }
+  span.bottom,
+  span.top {
+    left: 50%;
+    height: 3em;
+    width: 1px;
+  }
+
+  span.left,
+  span.right {
+    top: 50%;
+    height: 1px;
+    width: 3em;
+  }
+
+  span.left {
+    left: 0;
+  }
+
+  span.right {
+    right: 0;
+  }
+}
+
+@keyframes aim {
+  from {
+    filter: opacity(0);
+  }
+
+  to {
+    filter: opacity(1);
+  }
+}
