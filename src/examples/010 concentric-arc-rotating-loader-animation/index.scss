@@ -1,0 +1,62 @@
+body {
+  background-color: black;
+}
+
+@mixin borderStylus($top, $bottom) {
+  border-color: $top transparent $bottom transparent;
+}
+
+@mixin circle {
+  border-radius: 50%;
+  border-width: .4em;
+  border-style: solid;
+}
+.circle {
+  display: flex;
+  align-items: center;
+	justify-content: center;
+  width: 10em;
+  height: 10em;
+  font-size: 20px;
+  @include borderStylus(red, blue);
+  position: relative;
+
+  &, 
+  &:before, 
+  &:after {
+    @include circle;
+    animation: whirl 4s infinite alternate ease-in-out;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+  &:before {
+    $length: 70%;
+    width: $length;
+    height: $length;
+    @include borderStylus(#FFA500, #00FFFF);
+    animation-duration: 6s;
+  }
+  
+  &::after {
+    $length: 40%;
+    width: $length;
+    height: $length;
+    @include borderStylus(yellow, green);
+    animation-duration: 14s;
+  }
+  
+}
+
+@keyframes whirl {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(1440deg);
+  }
+}
