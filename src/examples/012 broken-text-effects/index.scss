@@ -1,0 +1,41 @@
+body {
+  background-image: linear-gradient(to bottom, brown, sandybrown);
+}
+
+.text {
+  font-size: 5em;
+  font-family: "arial black";
+  position: relative;
+  color: transparent;
+
+  &::before,
+  &::after {
+    position: absolute;
+    text-transform: uppercase;
+    content: attr(data-text);
+    top: 0;
+    left: 0;
+    color: lightyellow;
+    transition: .25s;
+  }
+
+  &::before {
+    clip-path: polygon(0 0, 60% 0, 30% 100%, 0 100%);
+  }
+
+  &::after {
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 30% 100%);
+  }
+
+  &:hover::before {
+    left: -0.15em;
+    top: -0.15em;
+    transform: rotate(-5deg);
+  }
+
+  &:hover::after {
+    left: 0.15em;
+    transform: rotate(5deg);
+    top: 0.05em;
+  }
+}
