@@ -1,0 +1,51 @@
+body {
+  background-color: #222;
+}
+
+.box {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  font-size: 2.5em;
+  width: 10em;
+  height: 5em;
+  border-radius: .5em;
+  text-align: center;
+  line-height: 1.5em;
+  font-family: sans-serif;
+  position: relative;
+  background-color: #111;
+  animation: animate-text alternate infinite 3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 10%);
+    height: calc(100% + 20%);
+    border-radius: .5em;
+    z-index: -1;
+    background-image: linear-gradient(60deg, aquamarine, cornflowerblue, goldenrod, hotpink, salmon, lightgreen, sandybrown, violet);
+    background-size: 300%;
+    animation: animate-bg 3s alternate linear;
+  }
+}
+
+@keyframes animate-bg {
+  from {
+    background-position: 0%, 50%;
+  }
+
+  to {
+    background-position: 100%, 50%;
+  }
+}
+
+@keyframes animate-text {
+  from {
+    color: lime;
+  }
+
+  to {
+    color: yellow;
+  }
+}
