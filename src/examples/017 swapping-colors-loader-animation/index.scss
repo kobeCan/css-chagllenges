@@ -1,0 +1,51 @@
+body {
+  background-color: #000;
+}
+
+$startColor: rgba(100%, 0%, 0%, .3);
+$endColor: rgba(0%, 0%, 100%, .3);
+
+@mixin edge_length($n) {
+  &:nth-child(#{$n}) {
+    width: (20% + 20% * (5 - $n));
+    height: (20% + 20% * (5 - $n));
+    animation-delay: .2s * (5 - $n);
+  }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10em;
+  height: 10em;
+  position: relative;
+  font-size: 24px;
+
+  span {
+    position: absolute;
+    background-color: $startColor;
+    box-sizing: border-box;
+    border: .5em solid;
+    border-color: white rgba(100%, 100%, 100%, .2);
+    animation: animate 5s ease-in-out infinite alternate;
+
+    @include edge_length(1);
+    @include edge_length(2);
+    @include edge_length(3);
+    @include edge_length(4);
+    @include edge_length(5);
+  }
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg);
+    background-color: $startColor;
+  }
+
+  to {
+    transform: rotate(360deg);
+    background-color: $endColor;
+  }
+}
