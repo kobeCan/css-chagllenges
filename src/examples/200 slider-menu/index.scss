@@ -1,0 +1,41 @@
+.slider-menu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  user-select: none;
+
+  li {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 100%;
+      width: 0;
+      border-bottom: 2px solid #2196f3;
+      transition: all .1s ease;
+    }
+
+    &:hover {
+      color: #2196f3;
+      &::before {
+        width: 100%;
+        left: 0;
+      }
+
+      ~ li::before {
+        left: 0;
+      }
+    }
+
+    &:active {
+      color: #FFF;
+      background-color: #2196f3;
+    }
+  }
+}
